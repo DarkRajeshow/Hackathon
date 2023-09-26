@@ -8,6 +8,7 @@ export default function Page() {
     const [fileData, setFileData] = useState(false);
     const [loadState, setLoadState] = useState(false);
     const [textMessage, setTextMessage] = useState("Uploading file...")
+    const [filesUploaded, setFilesUploaded] = useState([]);
 
     const handleChooseFile = (event) => {
         const files = event.target?.files;
@@ -29,6 +30,7 @@ export default function Page() {
         }, 4000);
         setTimeout(() => {
             setLoadState(false);
+            setFilesUploaded([...filesUploaded, fileData]);
         }, 5000);
         setTimeout(() => {
             setTextMessage("Uploading file...");
@@ -38,7 +40,7 @@ export default function Page() {
 
     return (
         <>
-            <ScreenLoading loadState={loadState} textMessage={textMessage} checkText={"File Uploaded"}/>
+            <ScreenLoading loadState={loadState} textMessage={textMessage} checkText={"File Uploaded"} />
 
             <article className='mx-4 sm:mx-6 md:mx-8 lg:mx-10 my-10'>
                 <div className='text-center '>
@@ -62,9 +64,19 @@ export default function Page() {
                 </div>
                 <div className='flex flex-col items-start px-6 sm:px-8 md:px-10 lg:px-20 py-4 sm:py-6 md:py-8 lg:py-10 bg-dark rounded-lg my-4 sm:my-6 md:my-8 lg:my-10 text-light'>
                     <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold py-4'>Your all Uploads!</h3>
-                    <div className='text-center w-full py-20 bg-light/10 rounded-md ' >
+                    {
+                        filesUploaded.map((file) => {
+                            return (
+                                <div className='w-full p-5 bg-light/10 rounded-md mb-4 font-semibold'>
+                                    <p>Name : {file.name}</p>
+                                    <p>Size : {(file.size / 1024).toFixed(0)}kb</p>
+                                </div>
+                            )
+                        })
+                    }
+                    {filesUploaded.length == 0 && <div className='text-center w-full py-20 bg-light/10 rounded-md ' >
                         <p className='w-[80%] mx-auto text-center text-sm sm:text-base md:text-lg font-medium'>Your didn&apos;t uploaded any files yet.</p>
-                    </div>
+                    </div>}
                 </div>
             </article>
         </>
