@@ -65,9 +65,9 @@ export default function Page() {
                 <div className='flex flex-col items-start px-6 sm:px-8 md:px-10 lg:px-20 py-4 sm:py-6 md:py-8 lg:py-10 bg-dark rounded-lg my-4 sm:my-6 md:my-8 lg:my-10 text-light'>
                     <h3 className='text-2xl md:text-3xl lg:text-4xl font-bold py-4'>Your all Uploads!</h3>
                     {
-                        filesUploaded.map((file) => {
+                        filesUploaded.map((file, index) => {
                             return (
-                                <div className='w-full p-5 bg-light/10 rounded-md mb-4 font-semibold'>
+                                <div key={index} className='w-full p-5 bg-light/10 rounded-md mb-4 font-semibold'>
                                     <p>Name : {file.name}</p>
                                     <p>Size : {(file.size / 1024).toFixed(0)}kb</p>
                                 </div>
