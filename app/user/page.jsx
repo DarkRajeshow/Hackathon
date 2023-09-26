@@ -2,7 +2,7 @@
 import ScreenLoading from '@/components/ScreenLoading';
 import React, { useState } from 'react'
 
-export default function page() {
+export default function Page() {
 
   const [loadState, setLoadState] = useState(false);
   const [textMessage, setTextMessage] = useState("Retriving file...")

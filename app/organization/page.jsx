@@ -3,7 +3,7 @@ import ScreenLoading from '@/components/ScreenLoading';
 import React, { useState } from 'react'
 import { FaCloudUploadAlt } from 'react-icons/fa'
 
-export default function page() {
+export default function Page() {
 
     const [fileData, setFileData] = useState(false);
     const [loadState, setLoadState] = useState(false);
