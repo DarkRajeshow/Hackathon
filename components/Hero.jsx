@@ -13,7 +13,7 @@ export default function Hero() {
                 <p className='text-xs md:text-sm lg:text-base font-medium'>We’ll personalize your setup experience accordingly.</p>
             </div>
             <div className='w-full md:w-[70%] lg:w-[40%] flex flex-col justify-center my-2'>
-                <div className={`icon flex items-center gap-3 p-4 bg-gray-100 my-3 border-2 border-light rounded-md ${!isUser ? "!border-dark" : ""}`}
+                <div className={`icon flex items-center gap-3 p-4 bg-gray-100 my-3 border-2 border-light rounded-md cursor-pointer ${!isUser ? "!border-dark" : ""}`}
                     onClick={() => {
                         setIsUser(false);
                     }}
@@ -24,7 +24,7 @@ export default function Hero() {
                         <p className='text-xs sm:text-sm'>Provide certificates to the authenticated users.</p>
                     </div>
                 </div>
-                <div className={`icon flex items-center gap-3 p-4 bg-gray-100 my-3 border-2 border-light rounded-md ${isUser ? "!border-dark" : ""}`} onClick={() => {
+                <div className={`icon flex items-center gap-3 p-4 bg-gray-100 my-3 border-2 border-light rounded-md cursor-pointer ${isUser ? "!border-dark" : ""}`} onClick={() => {
                     setIsUser(true);
                 }}>
                     <FaUser className='text-4xl md:text-5xl' />
